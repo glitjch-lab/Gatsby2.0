@@ -16,7 +16,7 @@ module.exports = {
         ignore: [`**/\.*`], // ignore files starting with a dot
       }
     },
-
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-mdx`,
   ],
 }

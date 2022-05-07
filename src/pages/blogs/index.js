@@ -3,6 +3,8 @@ import Layout from '../../components/layout';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+
 export default function BlogsPage({data}) {
   const posts = data.allMdx.nodes;
   const renderAllPosts = posts.map(post => {
