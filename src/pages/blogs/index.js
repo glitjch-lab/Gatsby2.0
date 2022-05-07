@@ -8,14 +8,15 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 export default function BlogsPage({data}) {
   const posts = data.allMdx.nodes;
   const renderAllPosts = posts.map(post => {
-    const { title, date, description } = post.frontmatter;
-    console.log("post",post.body)
+    const { title, date, description, thumbnail } = post.frontmatter;
+    const thumb = getImage(thumbnail);
     return (
       <article key={post.id}>
         <h1>{title}</h1>
         <h3>{date}</h3>
         <p>{description}</p>
         <MDXRenderer>{post.body}</MDXRenderer>
+        <GatsbyImage key={thumbnail.id} image={thumb} alt="thumbnail"/>
       </article>
     );
   });
@@ -29,7 +30,6 @@ export default function BlogsPage({data}) {
         <p>List of blogs</p>
         {renderAllPosts}
       </ul>
-        {/* <MDXRenderer>{renderAllPosts}</MDXRenderer> */}
     </Layout>
   );
 };
@@ -43,6 +43,12 @@ export const query = graphql`
           title
           description
           date
+          thumbnail {
+            id
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
         id
         body

@@ -16,6 +16,14 @@ module.exports = {
         ignore: [`**/\.*`], // ignore files starting with a dot
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "images",
+        path: `${__dirname}/content/images`,
+        ignore: [`**/\.*`], // ignore files starting with a dot
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-mdx`,
   ],
