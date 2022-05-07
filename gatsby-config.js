@@ -12,8 +12,11 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: "blogs",
-        path: `${__dirname}/content/blogs`
+        path: `${__dirname}/content/blogs`,
+        ignore: [`**/\.*`], // ignore files starting with a dot
       }
-    }
+    },
+
+    `gatsby-plugin-mdx`,
   ],
 }

@@ -17,7 +17,6 @@ export default function Layout({children}) {
     }
   `);
 
-  console.log("data", data)
   const { title } = data.site.siteMetadata;
     return (
       <div>
